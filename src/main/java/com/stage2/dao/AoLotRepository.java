@@ -1,0 +1,17 @@
+package com.stage2.dao;
+
+import com.stage2.entities.AoLot;
+import com.stage2.entities.AppelOffre;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+
+import java.util.List;
+import java.util.Optional;
+
+@RepositoryRestResource
+
+public interface AoLotRepository extends CrudRepository<AoLot,Long> {
+    List<AoLot> findAllByAppelOffre(Optional<AppelOffre> ao);
+
+
+}
