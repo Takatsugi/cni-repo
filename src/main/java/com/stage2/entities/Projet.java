@@ -23,7 +23,19 @@ public class Projet implements Serializable {
 	@Column(name="intitule", length=100)
 	private String intitule;
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name="ID_STRUCTURE", nullable=false)
+	private Structure structure;
+
 	public Projet() {
+	}
+
+	public Structure getStructure() {
+		return structure;
+	}
+
+	public void setStructure(Structure structure) {
+		this.structure = structure;
 	}
 
 	public Projet(String intitule) {

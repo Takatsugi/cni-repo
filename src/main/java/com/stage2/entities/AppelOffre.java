@@ -155,6 +155,11 @@ public class AppelOffre implements Serializable {
 	@Column(name="TYPE_PRIX", precision=10)
 	private BigDecimal typePrix;
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name="ID_PROJET", nullable=false)
+	private Projet projet;
+
+
 	//bi-directional many-to-one association to AoLot
 	/*@OneToMany(mappedBy="appelOffre")
 	private List<AoLot> aoLots;
@@ -164,6 +169,14 @@ public class AppelOffre implements Serializable {
 	private Marche marche;
 */
 	public AppelOffre() {
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 
 	public long getId() {

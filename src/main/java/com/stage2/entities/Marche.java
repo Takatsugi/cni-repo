@@ -235,7 +235,19 @@ public class Marche implements Serializable {
 	@OneToMany(mappedBy="marche")
 	private List<MarcheLot> marcheLots;
 
+	@ManyToOne(optional = false)
+	@JoinColumn(name="ID_PROJET", nullable=false)
+	private Projet projet;
+
 	public Marche() {
+	}
+
+	public Projet getProjet() {
+		return projet;
+	}
+
+	public void setProjet(Projet projet) {
+		this.projet = projet;
 	}
 
 	public long getId() {

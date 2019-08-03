@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan(basePackages = {"com.stage2.entities"})
 @EnableJpaRepositories("com.stage2.dao")
-@ComponentScan("com.stage2.controller")
+@ComponentScan(basePackages = "com.stage2")
 
 
 public class Stage2Application {
