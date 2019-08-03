@@ -81,7 +81,7 @@ public class MarcheService implements IMarcheService {
     }
     @Override
     public List<Marche> findAllByIdProjet(@PathVariable long id)  throws MarcheNotFoundException {
-        List<Marche> marches = marcheRepository.findAllByIdProjet(id);
+        List<Marche> marches = marcheRepository.findAllByProjet_Id(id);
         if (marches.isEmpty())
             throw new MarcheNotFoundException("id-" + id);
         return (List<Marche>) marches;

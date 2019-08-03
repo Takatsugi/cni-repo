@@ -160,9 +160,9 @@ public class Marche implements Serializable {
 	@Column(name="ID_PARAG", length=100)
 	private String idParag;
 
-	@Column(name="ID_PROJET", precision=10)
+	/*@Column(name="ID_PROJET", precision=10)
 	private long idProjet;
-
+*/
 	@Column(name="ID_STR_AG", precision=10)
 	private BigDecimal idStrAg;
 
@@ -602,13 +602,13 @@ public class Marche implements Serializable {
 		this.idParag = idParag;
 	}
 
-	public long getIdProjet() {
+	/*public long getIdProjet() {
 		return this.idProjet;
 	}
 
 	public void setIdProjet(long idProjet) {
 		this.idProjet = idProjet;
-	}
+	}*/
 
 	public BigDecimal getIdStrAg() {
 		return this.idStrAg;

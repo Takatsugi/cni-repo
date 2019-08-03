@@ -10,6 +10,6 @@ import java.util.Optional;
 @RepositoryRestResource
 public interface AppelOffreRepository extends CrudRepository<AppelOffre,Long> {
     List<AppelOffre> findAllByIdStructure(long id_structure);
-    List<AppelOffre> findAllByIdProjet(long id_projet);
+    List<AppelOffre> findAllByProjet_Id(long id_projet);
 
 }

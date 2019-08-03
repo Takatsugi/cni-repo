@@ -76,7 +76,7 @@ public class AppelOffreService implements IAppelOffreService{
     }
     @Override
     public List<AppelOffre> findAllByIdProjet(@PathVariable long id)  throws AppelOffreNotFoundException {
-        List<AppelOffre> appeloffre = appelOffreRepository.findAllByIdProjet(id);
+        List<AppelOffre> appeloffre = appelOffreRepository.findAllByProjet_Id(id);
         if (appeloffre.isEmpty())
             throw new AppelOffreNotFoundException("id-" + id);
         return (List<AppelOffre>) appeloffre;

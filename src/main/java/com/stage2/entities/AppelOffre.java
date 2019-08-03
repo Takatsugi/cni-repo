@@ -102,8 +102,8 @@ public class AppelOffre implements Serializable {
 	@Column(name="ID_PPMD", precision=10)
 	private BigDecimal idPpmd;
 
-	@Column(name="ID_PROJET", precision=10)
-	private long idProjet;
+	//@Column(name="ID_PROJET", precision=10)
+	//private long idProjet;
 
 	@Column(name="ID_STR_AG", precision=11)
 	private BigDecimal idStrAg;
@@ -395,13 +395,13 @@ public class AppelOffre implements Serializable {
 		this.idPpmd = idPpmd;
 	}
 
-	public long getIdProjet() {
+	/*public long getIdProjet() {
 		return this.idProjet;
 	}
 
 	public void setIdProjet(long idProjet) {
 		this.idProjet = idProjet;
-	}
+	}*/
 
 	public BigDecimal getIdStrAg() {
 		return this.idStrAg;
