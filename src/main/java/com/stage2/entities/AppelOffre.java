@@ -45,7 +45,7 @@ public class AppelOffre implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="DATE_SAISIE")
-	private Date dateSaisie;
+	private Date dateSaisie= new Date();
 
 	@Column(nullable=false, length=250)
 	private String des;
@@ -61,10 +61,10 @@ public class AppelOffre implements Serializable {
 	private String etatSuivi;
 
 	@Column(name="F_ACHAT_GROUP", precision=11)
-	private BigDecimal fAchatGroup;
+	private long fAchatGroup=0;
 
 	@Column(name="FLAG_AO", precision=10)
-	private BigDecimal flagAo;
+	private long flagAo=-1;
 
 	@Column(name="FLAG_EN_DIFFICULTE", precision=10)
 	private BigDecimal flagEnDifficulte;
@@ -76,13 +76,13 @@ public class AppelOffre implements Serializable {
 	private BigDecimal flagHeritagePpm;
 
 	@Column(name="FLAG_MULTI_LOT", precision=10)
-	private BigDecimal flagMultiLot;
+	private long flagMultiLot=0;
 
 	@Column(name="FLAG_PRIORI", precision=10)
-	private BigDecimal flagPriori;
+	private long flagPriori=1;
 
 	@Column(name="FLAG_RELENCE", precision=10)
-	private BigDecimal flagRelence;
+	private long flagRelence=-1;
 
 	@Column(name="FLAG_SOUS_LOT", precision=10)
 	private BigDecimal flagSousLot;
@@ -106,7 +106,7 @@ public class AppelOffre implements Serializable {
 	//private long idProjet;
 
 	@Column(name="ID_STR_AG", precision=11)
-	private BigDecimal idStrAg;
+	private long idStrAg=0;
 
 	@Column(name="ID_STRUCTURE", precision=10)
 	private long idStructure;
@@ -147,10 +147,10 @@ public class AppelOffre implements Serializable {
 	private String ssParag;
 
 	@Column(name="TAUX_CHANGE", precision=38, scale=2)
-	private BigDecimal tauxChange;
+	private long tauxChange=1;
 
 	@Column(name="TAUX_FINAN", precision=38, scale=2)
-	private BigDecimal tauxFinan;
+	private long tauxFinan =100;
 
 	@Column(name="TYPE_PRIX", precision=10)
 	private BigDecimal typePrix;
@@ -283,19 +283,19 @@ public class AppelOffre implements Serializable {
 		this.etatSuivi = etatSuivi;
 	}
 
-	public BigDecimal getFAchatGroup() {
+	public long getFAchatGroup() {
 		return this.fAchatGroup;
 	}
 
-	public void setFAchatGroup(BigDecimal fAchatGroup) {
+	public void setFAchatGroup(long fAchatGroup) {
 		this.fAchatGroup = fAchatGroup;
 	}
 
-	public BigDecimal getFlagAo() {
+	public long getFlagAo() {
 		return this.flagAo;
 	}
 
-	public void setFlagAo(BigDecimal flagAo) {
+	public void setFlagAo(long flagAo) {
 		this.flagAo = flagAo;
 	}
 
@@ -323,27 +323,27 @@ public class AppelOffre implements Serializable {
 		this.flagHeritagePpm = flagHeritagePpm;
 	}
 
-	public BigDecimal getFlagMultiLot() {
+	public long getFlagMultiLot() {
 		return this.flagMultiLot;
 	}
 
-	public void setFlagMultiLot(BigDecimal flagMultiLot) {
+	public void setFlagMultiLot(long flagMultiLot) {
 		this.flagMultiLot = flagMultiLot;
 	}
 
-	public BigDecimal getFlagPriori() {
+	public long getFlagPriori() {
 		return this.flagPriori;
 	}
 
-	public void setFlagPriori(BigDecimal flagPriori) {
+	public void setFlagPriori(long flagPriori) {
 		this.flagPriori = flagPriori;
 	}
 
-	public BigDecimal getFlagRelence() {
+	public long getFlagRelence() {
 		return this.flagRelence;
 	}
 
-	public void setFlagRelence(BigDecimal flagRelence) {
+	public void setFlagRelence(long flagRelence) {
 		this.flagRelence = flagRelence;
 	}
 
@@ -403,11 +403,11 @@ public class AppelOffre implements Serializable {
 		this.idProjet = idProjet;
 	}*/
 
-	public BigDecimal getIdStrAg() {
+	public long getIdStrAg() {
 		return this.idStrAg;
 	}
 
-	public void setIdStrAg(BigDecimal idStrAg) {
+	public void setIdStrAg(long idStrAg) {
 		this.idStrAg = idStrAg;
 	}
 
@@ -515,19 +515,19 @@ public class AppelOffre implements Serializable {
 		this.ssParag = ssParag;
 	}
 
-	public BigDecimal getTauxChange() {
+	public long getTauxChange() {
 		return this.tauxChange;
 	}
 
-	public void setTauxChange(BigDecimal tauxChange) {
+	public void setTauxChange(long tauxChange) {
 		this.tauxChange = tauxChange;
 	}
 
-	public BigDecimal getTauxFinan() {
+	public long getTauxFinan() {
 		return this.tauxFinan;
 	}
 
-	public void setTauxFinan(BigDecimal tauxFinan) {
+	public void setTauxFinan(long tauxFinan) {
 		this.tauxFinan = tauxFinan;
 	}
 

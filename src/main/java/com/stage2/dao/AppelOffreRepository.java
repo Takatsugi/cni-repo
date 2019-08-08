@@ -12,4 +12,5 @@ public interface AppelOffreRepository extends CrudRepository<AppelOffre,Long> {
     List<AppelOffre> findAllByIdStructure(long id_structure);
     List<AppelOffre> findAllByProjet_Id(long id_projet);
 
+
 }
