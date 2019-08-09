@@ -2,8 +2,10 @@ package com.stage2.service;
 
 import com.stage2.dao.AppelOffreRepository;
 import com.stage2.dao.MarcheRepository;
+import com.stage2.dao.ProjetRepository;
 import com.stage2.entities.AppelOffre;
 import com.stage2.entities.Marche;
+import com.stage2.entities.Projet;
 import com.stage2.exceptions.AppelOffreNotFoundException;
 import com.stage2.exceptions.MarcheNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class MarcheService implements IMarcheService {
     private MarcheRepository marcheRepository;
     @Autowired
     private AppelOffreRepository appelOffreRepository;
+    @Autowired
+    private ProjetRepository projetRepository;
 
     @Override
     public List<Marche> retrieveAllMarche() {
@@ -45,6 +49,9 @@ public class MarcheService implements IMarcheService {
 
     @Override
     public ResponseEntity<Object> createMarche(@RequestBody Marche marche) {
+        Optional<Projet> p = projetRepository.findById(marche.getProjet().getId());
+        marche.setIdStructure(p.get().getStructure().getId());
+
         Marche savedMarche = marcheRepository.save(marche);
 
 

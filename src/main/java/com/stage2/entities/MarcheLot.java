@@ -4,6 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -159,6 +160,9 @@ public class MarcheLot implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="ID_MARCHE", nullable=false)
 	private Marche marche;
+
+	@OneToMany()
+	private List<FactureMarcheLot> factureMarcheLots;
 
 	public MarcheLot() {
 	}

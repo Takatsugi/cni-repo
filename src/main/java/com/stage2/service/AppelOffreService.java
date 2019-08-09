@@ -1,7 +1,9 @@
 package com.stage2.service;
 
 import com.stage2.dao.AppelOffreRepository;
+import com.stage2.dao.ProjetRepository;
 import com.stage2.entities.AppelOffre;
+import com.stage2.entities.Projet;
 import com.stage2.exceptions.AppelOffreNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +20,8 @@ public class AppelOffreService implements IAppelOffreService{
 
     @Autowired
     private AppelOffreRepository appelOffreRepository;
-
+    @Autowired
+    private ProjetRepository projetRepository;
 
     @Override
     public List<AppelOffre> retrieveAllAppelOffre() {
@@ -41,6 +44,8 @@ public class AppelOffreService implements IAppelOffreService{
 
     @Override
     public ResponseEntity<Object> createAppelOffre(@RequestBody AppelOffre appoff) {
+        Optional<Projet> p = projetRepository.findById(appoff.getProjet().getId());
+        appoff.setIdStructure(p.get().getStructure().getId());
         AppelOffre savedAppelOffre = appelOffreRepository.save(appoff);
 
 

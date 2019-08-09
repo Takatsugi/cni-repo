@@ -1,5 +1,7 @@
 package com.stage2.entities;
 
+import org.springframework.beans.factory.annotation.Required;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -127,9 +129,14 @@ public class Facture implements Serializable {
 
 	@Column(name="ID_RIB_FRS")
 	private BigDecimal idRibFrs;
-
+/*
 	@Column(name="ID_STRUCTURE")
 	private BigDecimal idStructure;
+	²
+ */
+	@OneToOne
+	@JoinColumn(name="ID_STRUCTURE",nullable=false)
+	private Structure structure;
 
 	@Column(name="MNT_COMPTE")
 	private BigDecimal mntCompte;
@@ -229,6 +236,7 @@ public class Facture implements Serializable {
 	@OneToOne
 	@JoinColumn(name="ID_marche")
 	private Marche marche;
+
 
 	@OneToOne
 	@JoinColumn(name="ID_projet")
@@ -486,13 +494,24 @@ public class Facture implements Serializable {
 	public void setIdRibFrs(BigDecimal idRibFrs) {
 		this.idRibFrs = idRibFrs;
 	}
-
+/*
 	public BigDecimal getIdStructure() {
 		return this.idStructure;
 	}
 
 	public void setIdStructure(BigDecimal idStructure) {
 		this.idStructure = idStructure;
+	}
+
+ */
+
+	public Structure getStructure() {
+		return structure;
+	}
+
+	@Required
+	public void setStructure(Structure structure) {
+		this.structure = structure;
 	}
 
 	public BigDecimal getMntCompte() {

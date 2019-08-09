@@ -7,16 +7,19 @@ import javax.persistence.*;
  * The primary key class for the FACTURE_MARCHE_LOT database table.
  * 
  */
+
 @Embeddable
 public class FactureMarcheLotPK implements Serializable {
 	//default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
+
+
 	@Column(name="ID_FACTURE")
 	private long idFacture;
 
 	@Column(name="ID_MARCHE_LOT")
-	private long idMarcheLot;
+	private long idMarcheLot ;
 
 	public FactureMarcheLotPK() {
 	}
@@ -51,7 +54,9 @@ public class FactureMarcheLotPK implements Serializable {
 		int hash = 17;
 		hash = hash * prime + ((int) (this.idFacture ^ (this.idFacture >>> 32)));
 		hash = hash * prime + ((int) (this.idMarcheLot ^ (this.idMarcheLot >>> 32)));
-		
+
 		return hash;
 	}
+
+
 }

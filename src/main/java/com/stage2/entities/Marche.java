@@ -166,7 +166,7 @@ public class Marche implements Serializable {
 	@Column(name="ID_STR_AG", precision=10)
 	private BigDecimal idStrAg;
 
-	@Column(name="ID_STRUCTURE", precision=10)
+	@Column(name="ID_STRUCTURE", precision=10, nullable = true)
 	private long idStructure;
 
 	@Column(name="MT_ML", precision=38, scale=2)
@@ -238,6 +238,9 @@ public class Marche implements Serializable {
 	@ManyToOne(optional = false)
 	@JoinColumn(name="ID_PROJET", nullable=false)
 	private Projet projet;
+
+	@OneToMany()
+	private List<Facture> factures;
 
 	public Marche() {
 	}
