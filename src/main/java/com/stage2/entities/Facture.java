@@ -134,8 +134,11 @@ public class Facture implements Serializable {
 	private BigDecimal idStructure;
 	²
  */
-	@OneToOne
+/*	@OneToOne
 	@JoinColumn(name="ID_STRUCTURE",nullable=false)
+
+ */
+    @Column(name ="ID_STRUCTURE" )
 	private Structure structure;
 
 	@Column(name="MNT_COMPTE")
@@ -174,7 +177,8 @@ public class Facture implements Serializable {
 	@Column(name="MT_TTC")
 	private BigDecimal mtTtc;
 
-	private BigDecimal num;
+    @Column(name="NUM")
+    private BigDecimal num;
 
 	@Column(name="NUM_ORDRE_FACT")
 	private String numOrdreFact;
@@ -182,6 +186,7 @@ public class Facture implements Serializable {
 	@Column(name="NUM_VIR_CHEQ")
 	private BigDecimal numVirCheq;
 
+	@Column(name="OBS")
 	private String obs;
 
 	@Column(name="OBS_AR")
@@ -237,10 +242,14 @@ public class Facture implements Serializable {
 	@JoinColumn(name="ID_marche")
 	private Marche marche;
 
+	@Column(name="ID_projet")
+    private long idProjet;
 
-	@OneToOne
+	/*@OneToOne
 	@JoinColumn(name="ID_projet")
 	private Projet projet;
+
+	 */
 
 
 
@@ -778,7 +787,7 @@ public class Facture implements Serializable {
 		this.marche = marche;
 	}
 
-	public Projet getProjet() {
+	/*public Projet getProjet() {
 		return projet;
 	}
 
@@ -786,5 +795,13 @@ public class Facture implements Serializable {
 		this.projet = projet;
 	}
 
+	 */
 
+    public long getIdProjet() {
+        return idProjet;
+    }
+
+    public void setIdProjet(long idProjet) {
+        this.idProjet = idProjet;
+    }
 }

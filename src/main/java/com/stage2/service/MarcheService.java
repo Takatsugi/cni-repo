@@ -49,7 +49,7 @@ public class MarcheService implements IMarcheService {
 
     @Override
     public ResponseEntity<Object> createMarche(@RequestBody Marche marche) {
-        Optional<Projet> p = projetRepository.findById(marche.getProjet().getId());
+        Optional<Projet> p = projetRepository.findById(marche.getIdProjet());
         marche.setIdStructure(p.get().getStructure().getId());
 
         Marche savedMarche = marcheRepository.save(marche);
@@ -88,7 +88,7 @@ public class MarcheService implements IMarcheService {
     }
     @Override
     public List<Marche> findAllByIdProjet(@PathVariable long id)  throws MarcheNotFoundException {
-        List<Marche> marches = marcheRepository.findAllByProjet_Id(id);
+        List<Marche> marches = marcheRepository.findAllByIdProjet(id);
         if (marches.isEmpty())
             throw new MarcheNotFoundException("id-" + id);
         return (List<Marche>) marches;

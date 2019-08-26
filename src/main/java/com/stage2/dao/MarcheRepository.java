@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface MarcheRepository extends CrudRepository<Marche,Long> {
     List<Marche> findAllByIdStructure(long id_structure);
-    List<Marche> findAllByProjet_Id(long id_projet);
+    List<Marche> findAllByIdProjet(long id_projet);
     List<Marche> findAllByAppelOffre_Id(Long ao);
 
 
