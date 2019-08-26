@@ -66,7 +66,10 @@ public class AoLot implements Serializable {
 	private BigDecimal idMysql;
 
 	@Column(name="ID_PROJET", precision=10)
-	private BigDecimal idProjet;
+	private Projet idProjet;
+
+	@Column(name ="ID_STRUCTURE", precision =10)
+	private long idStructure;
 
 	@Column(name="N_LOT", nullable=false, precision=10)
 	private BigDecimal nLot;
@@ -102,6 +105,14 @@ public class AoLot implements Serializable {
 	private MarcheLot marcheLot;
 
 	public AoLot() {
+	}
+
+	public long getIdStructure() {
+		return idStructure;
+	}
+
+	public void setIdStructure(long idStructure) {
+		this.idStructure = idStructure;
 	}
 
 	public long getId() {
@@ -232,11 +243,11 @@ public class AoLot implements Serializable {
 		this.idMysql = idMysql;
 	}
 
-	public BigDecimal getIdProjet() {
+	public Projet getIdProjet() {
 		return this.idProjet;
 	}
 
-	public void setIdProjet(BigDecimal idProjet) {
+	public void setIdProjet(Projet idProjet) {
 		this.idProjet = idProjet;
 	}
 

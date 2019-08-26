@@ -139,7 +139,7 @@ public class Facture implements Serializable {
 
  */
     @Column(name ="ID_STRUCTURE" )
-	private Structure structure;
+	private long idStructure;
 
 	@Column(name="MNT_COMPTE")
 	private BigDecimal mntCompte;
@@ -236,6 +236,8 @@ public class Facture implements Serializable {
 	@Column(name="TYPE_PRIX")
 	private BigDecimal typePrix;
 
+	@Column(name="ID_AO")
+	private long idAo;
 
 
 	@OneToOne
@@ -254,6 +256,22 @@ public class Facture implements Serializable {
 
 
 	public Facture() {
+	}
+
+	public long getIdAo() {
+		return idAo;
+	}
+
+	public void setIdAo(long idAo) {
+		this.idAo = idAo;
+	}
+
+	public long getIdStructure() {
+		return idStructure;
+	}
+
+	public void setIdStructure(long idStructure) {
+		this.idStructure = idStructure;
 	}
 
 	public long getId() {
@@ -514,14 +532,16 @@ public class Facture implements Serializable {
 
  */
 
-	public Structure getStructure() {
+	/*public long getStructure() {
 		return structure;
 	}
 
-	@Required
-	public void setStructure(Structure structure) {
+	//@Required
+	public void setStructure(long structure) {
 		this.structure = structure;
 	}
+
+	 */
 
 	public BigDecimal getMntCompte() {
 		return this.mntCompte;

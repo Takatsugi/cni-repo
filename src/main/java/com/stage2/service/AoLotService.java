@@ -1,5 +1,9 @@
 package com.stage2.service;
 
+import com.stage2.dao.ProjetRepository;
+import com.stage2.dao.StructureRepository;
+import com.stage2.entities.Projet;
+import com.stage2.entities.Structure;
 import com.stage2.exceptions.AoLotNotFoundException;
 import com.stage2.dao.AoLotRepository;
 import com.stage2.dao.AppelOffreRepository;
@@ -22,6 +26,10 @@ public class AoLotService implements IAoLotService {
     private AoLotRepository aoLotRepository;
     @Autowired
     private AppelOffreRepository appelOffreRepository;
+    @Autowired
+    private ProjetRepository projetRepository;
+    @Autowired
+    private StructureRepository structureRepository;
 
     @Override
     public List<AoLot> retrieveAllAoLot() {
@@ -43,6 +51,9 @@ public class AoLotService implements IAoLotService {
 
     @Override
     public ResponseEntity<Object> createAoLot(@RequestBody AoLot aolot) {
+        Optional<Projet> p = projetRepository.findById(aolot.getIdProjet().getId());
+        aolot.setIdStructure(p.get().getStructure().getId());
+
         AoLot savedAoLot = aoLotRepository.save(aolot);
 
 

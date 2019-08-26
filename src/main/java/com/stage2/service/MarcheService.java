@@ -49,8 +49,9 @@ public class MarcheService implements IMarcheService {
 
     @Override
     public ResponseEntity<Object> createMarche(@RequestBody Marche marche) {
-        Optional<Projet> p = projetRepository.findById(marche.getIdProjet());
-        marche.setIdStructure(p.get().getStructure().getId());
+        Optional<AppelOffre> p = appelOffreRepository.findById(marche.getAppelOffre().getId());
+        marche.setIdStructure(p.get().getIdStructure());
+        marche.setIdProjet(p.get().getProjet().getId());
 
         Marche savedMarche = marcheRepository.save(marche);
 

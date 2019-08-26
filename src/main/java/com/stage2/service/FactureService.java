@@ -1,6 +1,7 @@
 package com.stage2.service;
 
 import com.stage2.dao.FactureRepository;
+import com.stage2.dao.MarcheRepository;
 import com.stage2.entities.AppelOffre;
 import com.stage2.entities.Facture;
 import com.stage2.entities.Marche;
@@ -21,6 +22,8 @@ import java.util.Optional;
 public class FactureService implements IFactureService {
     @Autowired
     private FactureRepository factureRepository;
+    @Autowired
+    private MarcheRepository marcheRepository;
 
     @Override
     public List<Facture> retrieveAllFacture() {
@@ -54,6 +57,10 @@ public class FactureService implements IFactureService {
 
     @Override
     public ResponseEntity<Object> createFacture(@RequestBody Facture facture) {
+        Optional<Marche> p = marcheRepository.findById(facture.getMarche().getId());
+        facture.setIdStructure(p.get().getIdStructure());
+        facture.setIdProjet(p.get().getIdProjet());
+        facture.setIdAo(p.get().getAppelOffre().getId());
         Facture savedFacture = factureRepository.save(facture);
 
 
